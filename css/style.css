@@ -1,4 +1,12 @@
 /* UTILITY */
+.height-contact
+{
+    height: calc( 100vh - 400px);
+}
+.height-chat
+{
+    height: calc( 100vh - 100px);
+}
 /* backgrounds */
 .bg-gray
 {
@@ -73,4 +81,6 @@ main .container
     background-color: white;
     text-align: left;
 }
+
+
 

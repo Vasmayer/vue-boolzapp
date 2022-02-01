@@ -22,6 +22,8 @@ Vue.config.devtools = true;
 var root = new Vue({
     el: '#root',
     data:{
+      useractive:0,
+      message:'',
       user: {
         name: 'Nome Utente',
         avatar: '_io'
@@ -236,8 +238,34 @@ var root = new Vue({
     },
     methods:
     {
-      
-      
+      setActive(index)
+      {
+        this.useractive = index;
+      },
+      sendMessage()
+      {
+        const objectMessage = {
+          date: new Date().toLocaleString('it-IT'),
+          text: this.message,
+          status: 'sent'
+        };
+        const objectMessageReceived = {
+          date: new Date().toLocaleString('it-IT'),
+          text: 'ok',
+          status: 'received'
+        };
+
+         this.contacts[this.useractive].messages.push(objectMessage); 
+
+         setTimeout(()=>{
+
+          this.contacts[this.useractive].messages.push(objectMessageReceived); 
+
+         },3000);
+
+         this.message = '';
+
+      }
          
     } 
   });
