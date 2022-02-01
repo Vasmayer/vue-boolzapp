@@ -1,0 +1,76 @@
+/* UTILITY */
+/* backgrounds */
+.bg-gray
+{
+    background-color: #EAEAEA;
+}
+.bg-light-blue
+{
+    background-color: #8EDAFB;
+}
+/* color */
+.color-light-blue
+{
+    color: #8EDAFB;
+}
+/* BORDERS */
+.border-right
+{
+    border-right: 2px solid blue;
+}
+/* MAIN */
+main
+{
+    background-image: linear-gradient(0deg, #DADBD3 80%, #009688 60%);
+    height: 100vh;
+}
+
+/* MAIN CONTAINER */
+
+main .container
+{
+    height: 90%;
+}
+
+/* LIST USERS AND CHAT SECTION */
+
+#list-users
+{
+    background-color: white;
+}
+
+/* MEDIA */
+.media{
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+/* USERS */
+.users
+{
+    cursor: pointer;
+}
+/* MESSAGE CHAT */
+.chat
+{
+    background-image: url('../img/mine.jpg');
+}
+.message
+{
+    border-radius: 10px;
+    padding: 10px 30px;
+    
+    
+}
+.message.sent
+{
+    background-color: #D5F9BA;
+    text-align: right;
+}
+.message.received
+{
+    background-color: white;
+    text-align: left;
+}
+
