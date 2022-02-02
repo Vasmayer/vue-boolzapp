@@ -11,91 +11,87 @@
     <title>vue-boolzapp</title>
 </head>
 <body>
-    <main>
-        <div class="container">
-            <div id="root">
-               <main class="d-flex justify-content-center align-items-center">
-                   <div class="container bg-white">
-                     <div class="row">
-                        <div id="list-users" class="col-4 p-0 d-flex flex-column border-right">
-                            <section id="user-active" class="p-2 d-flex justify-content-between align-items-center bg-gray">
-                                <div class="user-info d-flex justify-content-between align-items-center">
-                                    <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name" class="media">  
-                                    <div class="username px-3">
-                                        {{user.name}}
-                                    </div>  
-                                </div>
-                                <div class="icons text-secondary">
-                                    <i class="fas fa-circle-notch fa-2x px-1"></i>
-                                    <i class="fas fa-comment-alt fa-2x px-1"></i>
-                                    <i class="fas fa-ellipsis-v fa-2x px-1"></i>
-                                </div>
-                            </section>
-                            <section id="notifications p-3">
-                                <div class="icons bell bg-light-blue d-flex align-items-center p-3">
-                                    <i class="fas fa-bell-slash media d-flex align-items-center justify-content-center bg-white color-light-blue"></i>
+    <div id="root">
+        <!-- MAIN CENTER WHITE CONTAINER -->
+        <main class="d-flex justify-content-center align-items-center">
+            <!-- CONTAINER -->
+            <div class="container bg-white">
+                <div class="row">
+                    <div class="col-4 blue-border-end p-0">
+                        <!-- PROFILE USER -->
+                       <section class="profile bg-light">
+                           <div class="profile-info"> 
+                                <img :src="`img/avatar${user.avatar}.jpg`" :alt="`${user.name}`" class="profile-image">
+                                <div class="profile-text">{{user.name}}</div>
+                            </div>
+                            <!-- ICONS -->
+                            <div class="icons text-secondary">
+                                <i class="fas fa-circle-notch fa-2x px-1 icons"></i>
+                                <i class="fas fa-comment-alt fa-2x px-1 icons"></i>
+                                <i class="fas fa-ellipsis-v fa-2x px-1 icons"></i>
+                            </div>
+                       </section>
+                       <section id="notifications-activate">
+                            <div class="d-flex align-items-center p-3 bg-light-blue">
+                                    <i class="fas fa-bell-slash media d-flex align-items-center justify-content-center bg-white color-light-blue p-3 rounded-circle icon-notification"></i>
                                     <div class="px-3">
                                         <div>Ricevi notifiche di nuovi messaggi</div>
                                         <div><a href="#" class="text-secondary">Attiva notifiche desktop</a></div>
                                     </div>
-                                </div>
-                            </section>
-                            <section id="search">
-                                <div class="w-100 p-2 d-flex bg-gray">
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0 color-gray"><i class="fas fa-search"></i></span>
-                                        <input type="text" class="form-control border-start-0" placeholder="Cerca o inizia una nuova chat" name="search" id="search">
-                                    </div>
-                                </div>
-                            </section>
-                            <section id="contacts" class="overflow-auto flex-grow-1 height-contact">
-
-                                    <div v-for="(contact,i) in contacts" class="p-3 border-top border-bottom d-flex justify-content-start align-items-center users" @click="setActive(i)">
-                                        <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="media">  
-                                    <div class="username px-3">
-                                        {{contact.name}}
-                                    </div> 
-                                    </div>
-                              
-                            </section>
-                        </div>
-                        <div class="col-8 section chat p-0 position-relative height-chat">
-                            <div class="d-flex justify-content-between align-items-center bg-gray p-3">
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <img src="img/avatar_1.jpg" alt="Michele" class="media">
-                                    <div>
-                                        <div class="name-user px-3">{{contacts[useractive].name}}</div>
-                                        <div class="date-access text-secondary px-3">Ultimo accesso oggi alle</div>
-                                    </div>
-                                </div>
-                                <div class="icons text-secondary">
-                                    <i class="fas fa-search fa-2x px-1"></i>
-                                    <i class="fas fa-paperclip fa-2x px-1"></i>
-                                    <i class="fas fa-ellipsis-v fa-2x px-1"></i>
+                            </div>
+                        </section>
+                        <section id="search">
+                            <div class="w-100 p-2 d-flex bg-light">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0"><i class="fas fa-search"></i></span>
+                                    <input type="text" class="form-control border-start-0" placeholder="Cerca o inizia una nuova chat" name="search" id="search">
                                 </div>
                             </div>
-                            <div class="messages p-3 d-block">
-                                <div class="row my-3" v-for="message in contacts[useractive].messages">
-                                    <div class="col-8 message" :class="message.status === 'sent' ? message.status +' offset-3' : message.status +' offset-1'">
-                                        {{message.text}}
-                                        <div class="date text-secondary">{{message.date}}</div>
-                                    </div> 
-                                </div>
-                            </div> 
-                            <div class="send-message position-absolute bottom-0 start-0 w-100" >
-                                <div class="input-group input-group-lg">
-                                    <span class="input-group-text bg-white border-end-0 color-gray"><i class="far fa-smile"></i></span>
-                                    <input type="text" class="form-control border-start-0 border-end-0" name="write" id="write" v-model="message" @keyup.enter="sendMessage()">
-                                    <span class="input-group-text bg-white border-start-0 color-gray"><i class="fas fa-microphone"></i></span>
-                                </div>
-                            </div>  
-                        </div>
-                     </div>
-                   </div>
-               </main>
-            </div>     
-        </div>          
-  
+                        </section>
+                        <section  id="list-users" class="bg-white d-flex flex-column justify-content-start overflow-auto">
+                            <!-- PROFILE USERS -->
+                            <div class="profile-info p-3 top-bottom-borders" v-for="(contact,i) in contacts" @click="setActiveUser(i)"> 
+                                 <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name}`" class="profile-image">
+                                 <div class="profile-text">{{contact.name}}</div>
+                             </div>
+                         </section>
+                    </div>
+                    <div class="col-8 p-0 position-relative chat">
+                        <!-- PROFILE ACTIVE CONTACT -->
+                        <section class="profile bg-light">
+                            <div class="profile-info"> 
+                                 <img :src="`img/avatar${contacts[userActive].avatar}.jpg`" :alt="`${contacts[userActive].name}`" class="profile-image">
+                                 <div class="profile-text">{{contacts[userActive].name}}</div>
+                             </div>
+                             <!-- ICONS -->
+                             <div class="icons text-secondary">
+                                <i class="fas fa-search fa-2x px-1"></i>
+                                <i class="fas fa-paperclip fa-2x px-1"></i>
+                                <i class="fas fa-ellipsis-v fa-2x px-1"></i>
+                            </div>
+                        </section>
+                        <!-- MESSAGES -->
+                        <div class="messages p-3 d-block">
+                            <div class="row my-3" v-for="message in contacts[userActive].messages">
+                                <div class="col-8 message" :class="message.status === 'sent' ? message.status +' offset-3' : message.status +' offset-1'">
+                                    {{message.text}}
+                                    <div class="date text-secondary">{{message.date}}</div>
+                                </div> 
+                            </div>
+                        </div> 
+                        <!-- INPUT MESSAGE -->
+                        <div class="send-message position-absolute bottom-0 start-0 w-100" >
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-white border-end-0 color-gray"><i class="far fa-smile"></i></span>
+                                <input type="text" class="form-control border-start-0 border-end-0" name="write" id="write" v-model="textMessage" @keyup.enter="response">
+                                <span class="input-group-text bg-white border-start-0 color-gray"><i class="fas fa-microphone"></i></span>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>  
     <script src="js/script.js"></script>
 </body>
 </html>

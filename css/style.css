@@ -1,75 +1,82 @@
 /* UTILITY */
-.height-contact
-{
-    height: calc( 100vh - 400px);
-}
-.height-chat
-{
-    height: calc( 100vh - 100px);
-}
-/* backgrounds */
-.bg-gray
-{
-    background-color: #EAEAEA;
-}
+/* color */
 .bg-light-blue
 {
     background-color: #8EDAFB;
 }
-/* color */
 .color-light-blue
 {
     color: #8EDAFB;
 }
-/* BORDERS */
-.border-right
+/* borders */
+.blue-border-end
 {
-    border-right: 2px solid blue;
+    border-right: 2px solid dodgerblue;
+}
+.top-bottom-borders
+{
+    border-top: lightgray 1px solid;
+    border-bottom: lightgray 1px solid;
 }
 /* MAIN */
 main
 {
-    background-image: linear-gradient(0deg, #DADBD3 80%, #009688 60%);
+    background-image: linear-gradient(0deg, #DADBD3 80%, #009688 20%);
     height: 100vh;
 }
 
-/* MAIN CONTAINER */
-
+/* MAIN CONTENT */
 main .container
 {
     height: 90%;
+    max-height: 90%;
 }
 
-/* LIST USERS AND CHAT SECTION */
+/* PROFILE */
+.profile{
 
-#list-users
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+.profile-info
 {
-    background-color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
-
-/* MEDIA */
-.media{
-
+.profile-image, .icon-notification
+{
     width: 60px;
     height: 60px;
     border-radius: 50%;
 }
-/* USERS */
-.users
+.profile-info .profile-text
 {
-    cursor: pointer;
+    padding-left: 10px;
 }
-/* MESSAGE CHAT */
+/* ICONS */
+.icons
+{    cursor: pointer;
+}
+/* LIST USERS */
+.height
+{
+    min-height: 100%;
+    height: 100%;
+}
+/* CHAT */
 .chat
 {
     background-image: url('../img/mine.jpg');
 }
+/* MESSAGES */
 .message
 {
     border-radius: 10px;
     padding: 10px 30px;
-    
-    
 }
 .message.sent
 {
@@ -81,6 +88,8 @@ main .container
     background-color: white;
     text-align: left;
 }
-
-
-
+/* DATE */
+.date
+{
+    text-align: right;
+}

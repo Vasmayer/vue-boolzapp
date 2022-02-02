@@ -15,6 +15,17 @@ Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitan
 il testo viene aggiunto al thread sopra, come messaggio verde
 Risposta dall’interlocutore: ad ogni inserimento di un messaggio, 
 l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+
+Milestone 4
+Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+
+Milestone 5 - opzionale
+Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato (vedi immagine in allegato)
+Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
+NOTE:
+Ricordate di includere la proprietà visible nella nostra logica di ricerca
+Sono a disposizione per i ticket fino alle 13 e nel pomeriggio i tutor saranno disponibili dalle 15 alle 18.
+(modificato)
  */
 
 Vue.config.devtools = true;
@@ -22,8 +33,8 @@ Vue.config.devtools = true;
 var root = new Vue({
     el: '#root',
     data:{
-      useractive:0,
-      message:'',
+      userActive:0,
+      textMessage:'',
       user: {
         name: 'Nome Utente',
         avatar: '_io'
@@ -109,163 +120,163 @@ var root = new Vue({
           ],
         },
         {
-          name: 'Samuele',
-          avatar: '_3',
+          name: 'Giovanni',
+          avatar: '_5',
           visible: true,
           messages: [{
             date: '28/03/2020 10:10:40',
-            text: 'La Marianna va in campagna',
+            text: 'Ciao come stai?',
             status: 'received'
           },
           {
             date: '28/03/2020 10:20:10',
-            text: 'Sicuro di non aver sbagliato chat?',
+            text: 'Io bene grazie e te ?',
             status: 'sent'
           },
           {
             date: '28/03/2020 16:15:22',
-            text: 'Ah scusa!',
+            text: 'Potrebbe andare meglio',
             status: 'received'
           }
           ],
         },
         {
-          name: 'Samuele',
-          avatar: '_3',
+          name: 'Giuseppe',
+          avatar: '_6',
           visible: true,
           messages: [{
             date: '28/03/2020 10:10:40',
-            text: 'La Marianna va in campagna',
+            text: 'Ciao ci sei stasera?',
             status: 'received'
           },
           {
             date: '28/03/2020 10:20:10',
-            text: 'Sicuro di non aver sbagliato chat?',
+            text: 'Scusa ma non riesco, possiamo fare prossimo venerdì',
             status: 'sent'
           },
           {
             date: '28/03/2020 16:15:22',
-            text: 'Ah scusa!',
+            text: 'Va bene! ci sentiamo',
             status: 'received'
           }
           ],
         },
         {
-          name: 'Samuele',
-          avatar: '_3',
+          name: 'Antonio',
+          avatar: '_7',
           visible: true,
           messages: [{
             date: '28/03/2020 10:10:40',
-            text: 'La Marianna va in campagna',
+            text: 'Ciao mi sono dimenticato la maglietta a casa tua!',
             status: 'received'
           },
           {
             date: '28/03/2020 10:20:10',
-            text: 'Sicuro di non aver sbagliato chat?',
+            text: "Ah si l' ho vista ora, appena ci vediamo te la porto",
             status: 'sent'
           },
           {
             date: '28/03/2020 16:15:22',
-            text: 'Ah scusa!',
+            text: 'ok!',
             status: 'received'
           }
           ],
         },
         {
-          name: 'Samuele',
-          avatar: '_3',
+          name: 'Marco',
+          avatar: '_1',
           visible: true,
           messages: [{
             date: '28/03/2020 10:10:40',
-            text: 'La Marianna va in campagna',
+            text: 'Ma domani ci sono le lezioni?',
             status: 'received'
           },
           {
             date: '28/03/2020 10:20:10',
-            text: 'Sicuro di non aver sbagliato chat?',
+            text: 'Si lo sciopero è stato annullato',
             status: 'sent'
           },
           {
             date: '28/03/2020 16:15:22',
-            text: 'Ah scusa!',
+            text: 'Perfetto!',
             status: 'received'
           }
           ],
         },
         {
-          name: 'Samuele',
-          avatar: '_3',
+          name: 'Enrico',
+          avatar: '_2',
           visible: true,
           messages: [{
             date: '28/03/2020 10:10:40',
-            text: 'La Marianna va in campagna',
+            text: 'Ciao come va ?',
             status: 'received'
           },
           {
             date: '28/03/2020 10:20:10',
-            text: 'Sicuro di non aver sbagliato chat?',
+            text: 'Bene bene grazie e te ?',
             status: 'sent'
           },
           {
             date: '28/03/2020 16:15:22',
-            text: 'Ah scusa!',
-            status: 'received'
-          }
-          ],
-        },
-        {
-          name: 'Samuele',
-          avatar: '_3',
-          visible: true,
-          messages: [{
-            date: '28/03/2020 10:10:40',
-            text: 'La Marianna va in campagna',
+            text: 'Insomma',
             status: 'received'
           },
           {
             date: '28/03/2020 10:20:10',
-            text: 'Sicuro di non aver sbagliato chat?',
+            text: 'Come mai che è successo?',
             status: 'sent'
           },
           {
             date: '28/03/2020 16:15:22',
-            text: 'Ah scusa!',
+            text: 'La macchina perchè non parte più!',
             status: 'received'
-          }
+          },
+          {
+            date: '28/03/2020 10:20:10',
+            text: "Speriamo sia nulla di grave in caso ci sono delle offerte fantastiche sull'elettrico",
+            status: 'sent'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'Ok grazie del consiglio',
+            status: 'received'
+          },
           ],
         },
       ],
     },
     methods:
     {
-      setActive(index)
+      setActiveUser(index)
       {
-        this.useractive = index;
+        this.userActive = index;
       },
-      sendMessage()
+      sendMessage(text,status)
       {
         const objectMessage = {
           date: new Date().toLocaleString('it-IT'),
-          text: this.message,
-          status: 'sent'
-        };
-        const objectMessageReceived = {
-          date: new Date().toLocaleString('it-IT'),
-          text: 'ok',
-          status: 'received'
+          text,
+          status
         };
 
-         this.contacts[this.useractive].messages.push(objectMessage); 
-
+        this.contacts[this.userActive].messages.push(objectMessage); 
+      },
+      response()
+      {
+        this.sendMessage(this.textMessage,'sent')
+        
          setTimeout(()=>{
 
-          this.contacts[this.useractive].messages.push(objectMessageReceived); 
+          this.sendMessage('ok','received') 
 
          },3000);
 
          this.message = '';
 
       }
+
+      
          
     } 
   });
