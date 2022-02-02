@@ -52,7 +52,11 @@
                             <!-- PROFILE USERS -->
                             <div class="profile-info p-3 top-bottom-borders" v-if="searchUser(i)" v-for="(contact,i) in contacts" @click="setActiveUser(i)"> 
                                  <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name}`" class="profile-image">
-                                 <div class="profile-text">{{contact.name}}</div>
+                                 <div class="profile-text">
+                                     {{contact.name}}
+                                     <div class="text-secondary">{{contact.messages[contact.messages.length - 1 ].text}}</div>
+                                </div>
+                                
                              </div>
                          </section>
                     </div>
@@ -72,10 +76,17 @@
                         </section>
                         <!-- MESSAGES -->
                         <div class="messages p-3 d-block">
-                            <div class="row my-3" v-for="message in contacts[userActive].messages">
+                            <div class="row my-3" v-for="(message,i) in contacts[userActive].messages">
                                 <div class="col-8 message" :class="message.status === 'sent' ? message.status +' offset-3' : message.status +' offset-1'">
-                                    {{message.text}}
-                                    <div class="date text-secondary">{{message.date}}</div>
+                                    <div class="position-relative">
+                                        <div class="chevron" @click="message.infoHidden = !message.infoHidden"><i class="fas fa-chevron-down"></i></div>
+                                        <div class="bg-white text-center p-1 info" v-if="!message.infoHidden">
+                                            <div class="p-1 icons info-button">Info</div>
+                                            <div class="p-1 icons info-delete" @click="deleteMessage(i)">Cancella Messaggio</div>
+                                        </div>
+                                        <div>{{message.text}}</div>
+                                        <div class="date text-secondary">{{message.date}}</div>
+                                    </div>
                                 </div> 
                             </div>
                         </div> 

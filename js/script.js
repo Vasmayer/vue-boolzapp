@@ -20,7 +20,8 @@ Milestone 4
 Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 
 Milestone 5 - opzionale
-Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato (vedi immagine in allegato)
+Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio 
+selezionato (vedi immagine in allegato)
 Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
 NOTE:
 Ricordate di includere la proprietà visible nella nostra logica di ricerca
@@ -48,17 +49,20 @@ var root = new Vue({
           messages: [{
             date: '10/01/2020 15:30:55',
             text: 'Hai portato a spasso il cane?',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '10/01/2020 15:50:00',
             text: 'Ricordati di dargli da mangiare',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '10/01/2020 16:15:22',
             text: 'Tutto fatto!',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           }
           ],
         },
@@ -69,17 +73,20 @@ var root = new Vue({
           messages: [{
             date: '20/03/2020 16:30:00',
             text: 'Ciao come stai?',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '20/03/2020 16:30:55',
             text: 'Bene grazie! Stasera ci vediamo?',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '20/03/2020 16:35:00',
             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           }
           ],
         },
@@ -90,17 +97,20 @@ var root = new Vue({
           messages: [{
             date: '28/03/2020 10:10:40',
             text: 'La Marianna va in campagna',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Sicuro di non aver sbagliato chat?',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Ah scusa!',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           }
           ],
         },
@@ -111,12 +121,14 @@ var root = new Vue({
           messages: [{
             date: '10/01/2020 15:30:55',
             text: 'Lo sai che ha aperto una nuova pizzeria?',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '10/01/2020 15:50:00',
             text: 'Si, ma preferirei andare al cinema',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           }
           ],
         },
@@ -127,17 +139,20 @@ var root = new Vue({
           messages: [{
             date: '28/03/2020 10:10:40',
             text: 'Ciao come stai?',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Io bene grazie e te ?',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Potrebbe andare meglio',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           }
           ],
         },
@@ -148,17 +163,20 @@ var root = new Vue({
           messages: [{
             date: '28/03/2020 10:10:40',
             text: 'Ciao ci sei stasera?',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Scusa ma non riesco, possiamo fare prossimo venerdì',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Va bene! ci sentiamo',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           }
           ],
         },
@@ -169,17 +187,20 @@ var root = new Vue({
           messages: [{
             date: '28/03/2020 10:10:40',
             text: 'Ciao mi sono dimenticato la maglietta a casa tua!',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: "Ah si l' ho vista ora, appena ci vediamo te la porto",
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'ok!',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           }
           ],
         },
@@ -190,17 +211,20 @@ var root = new Vue({
           messages: [{
             date: '28/03/2020 10:10:40',
             text: 'Ma domani ci sono le lezioni?',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Si lo sciopero è stato annullato',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Perfetto!',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           }
           ],
         },
@@ -211,72 +235,86 @@ var root = new Vue({
           messages: [{
             date: '28/03/2020 10:10:40',
             text: 'Ciao come va ?',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Bene bene grazie e te ?',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Insomma',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Come mai che è successo?',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'La macchina perchè non parte più!',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: "Speriamo sia nulla di grave in caso ci sono delle offerte fantastiche sull'elettrico",
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Ok grazie del consiglio',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:10:40',
             text: 'Ciao come va ?',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Bene bene grazie e te ?',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Insomma',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Come mai che è successo?',
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'La macchina perchè non parte più!',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           },
           {
             date: '28/03/2020 10:20:10',
             text: "Speriamo sia nulla di grave in caso ci sono delle offerte fantastiche sull'elettrico",
-            status: 'sent'
+            status: 'sent',
+            infoHidden:true
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Ok grazie del consiglio',
-            status: 'received'
+            status: 'received',
+            infoHidden:true
           }
           ],
         },
@@ -293,7 +331,8 @@ var root = new Vue({
         const objectMessage = {
           date: new Date().toLocaleString('it-IT'),
           text,
-          status
+          status,
+          infoHidden:true
         };
 
         this.contacts[this.userActive].messages.push(objectMessage); 
@@ -308,17 +347,21 @@ var root = new Vue({
 
          },3000);
 
-         this.message = '';
+         this.textMessage = '';
 
       },
       searchUser(index)
       {
         if(this.search)
         {
-          return this.contacts[index].name.toLowerCase().indexOf(this.search.toLowerCase()) ? false : true;
+          return this.contacts[index].name.toLowerCase().indexOf(this.search.toLowerCase().trim()) >-1 ? true : false;
         }
 
         return true;
+      },
+      deleteMessage(index)
+      {
+        this.contacts[this.userActive].messages.splice(index, 1);
       } 
     } 
   });

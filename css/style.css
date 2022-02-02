@@ -88,8 +88,32 @@ main .container
     background-color: white;
     text-align: left;
 }
+.messages .chevron
+{
+    text-align: right;
+    cursor: pointer;
+}
 /* DATE */
 .date
 {
     text-align: right;
+}
+
+/* INFO */
+
+.info
+{
+    position: absolute;
+    top:20px;
+    right:0px;
+    border: darkblue 1px solid;
+}
+
+.info-button:hover
+{
+    background-color: lightgray;
+}
+.info-delete:hover
+{
+    background-color: lightgray;
 }
