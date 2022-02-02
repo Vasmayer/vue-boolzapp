@@ -33,6 +33,7 @@ Vue.config.devtools = true;
 var root = new Vue({
     el: '#root',
     data:{
+      search:'',
       userActive:0,
       textMessage:'',
       user: {
@@ -242,6 +243,41 @@ var root = new Vue({
             text: 'Ok grazie del consiglio',
             status: 'received'
           },
+          {
+            date: '28/03/2020 10:10:40',
+            text: 'Ciao come va ?',
+            status: 'received'
+          },
+          {
+            date: '28/03/2020 10:20:10',
+            text: 'Bene bene grazie e te ?',
+            status: 'sent'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'Insomma',
+            status: 'received'
+          },
+          {
+            date: '28/03/2020 10:20:10',
+            text: 'Come mai che è successo?',
+            status: 'sent'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'La macchina perchè non parte più!',
+            status: 'received'
+          },
+          {
+            date: '28/03/2020 10:20:10',
+            text: "Speriamo sia nulla di grave in caso ci sono delle offerte fantastiche sull'elettrico",
+            status: 'sent'
+          },
+          {
+            date: '28/03/2020 16:15:22',
+            text: 'Ok grazie del consiglio',
+            status: 'received'
+          }
           ],
         },
       ],
@@ -274,9 +310,15 @@ var root = new Vue({
 
          this.message = '';
 
-      }
+      },
+      searchUser(index)
+      {
+        if(this.search)
+        {
+          return this.contacts[index].name.toLowerCase().indexOf(this.search.toLowerCase()) ? false : true;
+        }
 
-      
-         
+        return true;
+      } 
     } 
   });

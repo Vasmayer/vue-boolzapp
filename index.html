@@ -44,13 +44,13 @@
                             <div class="w-100 p-2 d-flex bg-light">
                                 <div class="input-group">
                                     <span class="input-group-text bg-white border-end-0"><i class="fas fa-search"></i></span>
-                                    <input type="text" class="form-control border-start-0" placeholder="Cerca o inizia una nuova chat" name="search" id="search">
+                                    <input type="text" class="form-control border-start-0" placeholder="Cerca o inizia una nuova chat" name="search" id="search" v-model="search">
                                 </div>
                             </div>
                         </section>
                         <section  id="list-users" class="bg-white d-flex flex-column justify-content-start overflow-auto">
                             <!-- PROFILE USERS -->
-                            <div class="profile-info p-3 top-bottom-borders" v-for="(contact,i) in contacts" @click="setActiveUser(i)"> 
+                            <div class="profile-info p-3 top-bottom-borders" v-if="searchUser(i)" v-for="(contact,i) in contacts" @click="setActiveUser(i)"> 
                                  <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name}`" class="profile-image">
                                  <div class="profile-text">{{contact.name}}</div>
                              </div>
